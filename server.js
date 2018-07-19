@@ -1,15 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+
 const app = express();
+const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 app.get('/jobs', async (req, res) => {
   res.send(JSON.stringify(jobs));
 });
 
-app.listen(3000, () => {
-  console.log('started on port 3000');
+app.listen(port, () => {
+  console.log(`started on port ${port}`);
 });
 
 const jobs = [
